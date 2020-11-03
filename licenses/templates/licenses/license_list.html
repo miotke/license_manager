@@ -4,6 +4,10 @@
 
     {% for software in licenses %}
         <h3>{{ software.software_name }}</h3>
-        Assigned to: {{ software.license_assigned_to }}
+        <p>
+            Assigned to: {{ software.license_assigned_to }}
+            <br>
+            -----------------------------------------------
+        </p>
     {% endfor %}
 {% endblock content %}

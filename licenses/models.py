@@ -14,7 +14,7 @@ class License(models.Model):
     license_key = models.CharField(max_length=100)
     license_assigned_to = models.CharField(max_length=50, blank=True, default="License is free")
     purchase_date = models.DateField(default=timezone.now)
-    renewal_date = models.DateField(default=timezone.now)
+    renewal_date = models.DateField(default=timezone.now, blank=True)
 
     """
     TODO: Impliment this later.
