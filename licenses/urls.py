@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views
+from .views import ListLicenseKeysView
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', ListLicenseKeysView.as_view(), name='license-index'),
 ]

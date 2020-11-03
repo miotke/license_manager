@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Licensed Software:</h1>
+
+    {% for software in licenses %}
+        <h3>{{ software.software_name }}</h3>
+        Assigned to: {{ software.license_assigned_to }}
+    {% endfor %}
+{% endblock content %}
