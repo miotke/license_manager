@@ -17,7 +17,13 @@
     {% endif %}
 </head>
 <body>
-
+    <nav class="nav">
+        <p>
+            <a href="{% url 'login' %}">Login</a>
+            |
+            <a href="{% url 'logout' %}">Logout</a>
+        </p>
+    </nav>
     {% block content %}{% endblock %}
 
     <!-- Optional JavaScript -->
