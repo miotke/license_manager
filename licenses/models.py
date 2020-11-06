@@ -35,4 +35,4 @@ class License(models.Model):
 
 
     def get_absolute_url(self):
-        return reverse("license-index")
+        return reverse("")

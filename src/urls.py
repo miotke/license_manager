@@ -22,4 +22,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("licenses.urls")),
     path("login/", include("licenses.urls")),
+    path("logout/", auth_views.LogoutView.as_view(template="licenses/logout.html"), name="logout")
 ]

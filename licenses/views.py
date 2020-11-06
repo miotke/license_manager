@@ -8,10 +8,6 @@ from django.views.generic import UpdateView
 from django.views.generic import DeleteView
 from .models import License
 
-# Create your views here.
-def index(request):
-    return HttpResponse("Hello, world")
-
 
 class ListLicenseKeysView(LoginRequiredMixin, ListView):
 
