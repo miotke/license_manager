@@ -2,12 +2,20 @@
 {% block content %}
     <h1>Licensed Software:</h1>
 
-    {% for software in licenses %}
-        <h3>{{ software.software_name }}</h3>
-        <p>
-            Assigned to: {{ software.license_assigned_to }}
-            <br>
-            -----------------------------------------------
-        </p>
-    {% endfor %}
+    <table class="table table-striped">
+
+        <tbody>
+            {% for software in licenses %}
+                <tr>
+                    <!-- Everything inside <td> defines the row and everything inside that row -->
+                    <td>
+                        <b>{{ software.software_name }}</b>
+                        <br>
+                        Assigned to: {{ software.license_assigned_to }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
 {% endblock content %}
