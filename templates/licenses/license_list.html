@@ -5,11 +5,11 @@
     <table class="table table-striped">
 
         <tbody>
-            {% for software in licenses %}
+            {% for software_title in software %}
                 <tr>
                     <!-- Everything inside <td> defines the row and everything inside that row -->
                     <td>
-                        <b>{{ software.software_name }}</b>
+                        <b>{{ software.associated_software }}</b>
                         <br>
                         Assigned to: {{ software.license_assigned_to }}
                     </td>
