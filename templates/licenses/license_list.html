@@ -17,6 +17,11 @@
                         {% else %}
                             Assigned to: {{ software.license_assigned_to }}
                         {% endif %}
+                        <br>
+                        {% if request.user.is_superuser %}
+                            License key: {{ software.license_key }}
+                        {% else %}
+                        {% endif %}
                     </td>
                 </tr>
             {% endfor %}
