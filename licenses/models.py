@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+
 from django.urls import reverse
 from django.db.models import Q
 
@@ -44,6 +46,7 @@ class License(models.Model):
 
     For now it's just a required text field.
     """
+    license_assigned_by = models.CharField(max_length=50)
     license_assigned_to = models.CharField(max_length=50, blank=True, default="License is free")
     purchase_date = models.DateField(default=timezone.now)
     renewal_date = models.DateField(default=timezone.now)
@@ -52,6 +55,10 @@ class License(models.Model):
 
     def save(self):
         super().save()
+
+
+    def get_superusers(self):
+        pass
 
 
     def __str__(self):
