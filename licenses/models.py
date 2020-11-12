@@ -34,6 +34,7 @@ class License(models.Model):
     Each piece of software can have multiple licenses.
     """
 
+
     date_of_entry = models.DateField(default=timezone.now)
     license_key = models.CharField(max_length=256)
     """
@@ -54,7 +55,7 @@ class License(models.Model):
 
 
     def __str__(self):
-        return self.license_assigned_to
+        return str([str(self.associated_software), str(self.license_assigned_to)])
 
 
     class Meta:

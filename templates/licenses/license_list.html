@@ -5,13 +5,18 @@
     <table class="table table-striped">
 
         <tbody>
+            <!-- The below for loop looks at the License class in licenses > models.py -->
             {% for software in licenses %}
                 <tr>
                     <!-- Everything inside <td> defines the row and everything inside that row -->
                     <td>
                         <b>{{ software.associated_software }}</b>
                         <br>
-                        Assigned to: {{ software.license_assigned_to }}
+                        {% if software.license_assigned_to == "License is free" %}
+                            License is available
+                        {% else %}
+                            Assigned to: {{ software.license_assigned_to }}
+                        {% endif %}
                     </td>
                 </tr>
             {% endfor %}
