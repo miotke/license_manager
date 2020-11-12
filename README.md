@@ -15,3 +15,9 @@ A Django application that will allow you to track and manage software licenses a
 - Purchase date
 - Renewal date(if there is one)
 - Who the license is assigned to
+
+
+## Implementation
+
+- One piece of software can have multiple licenses `many-to-one`
+- One license can have one user assigned to it `one-to-one`
