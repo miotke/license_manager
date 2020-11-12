@@ -12,15 +12,15 @@
                     <td>
                         <b>{{ software.associated_software }}</b>
                         <br>
+                        {% if request.user.is_superuser %}
+                            License key: <span id="licese_key_styling">{{ software.license_key }}</span>
+                        {% else %}
+                        {% endif %}
+                        <br>
                         {% if software.license_assigned_to == "License is free" %}
                             License is available
                         {% else %}
                             Assigned to: {{ software.license_assigned_to }}
-                        {% endif %}
-                        <br>
-                        {% if request.user.is_superuser %}
-                            License key: {{ software.license_key }}
-                        {% else %}
                         {% endif %}
                     </td>
                 </tr>
