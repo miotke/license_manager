@@ -22,11 +22,9 @@ class Command(BaseCommand):
 
 
     def handle(self, *args, **kwargs):
-        # total = kwargs["name"]
-        # for i in range(total):
-
         name = kwargs["name"]
         password = get_random_string()
+
         User.objects.create_user(username=name, email="", password=password)
 
         self.stdout.write(f"Account created \n 🙋‍♂️Username: {name} \n 🔐 Password: {password} \n")
