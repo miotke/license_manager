@@ -18,10 +18,15 @@ class Command(BaseCommand):
 
 
     def add_arguments(self, parser):
-        parser.add_argument("total", type=int, help="Indicates the number users to be created")
+        parser.add_argument("name", type=str, help="Indicates the number users to be created")
 
 
     def handle(self, *args, **kwargs):
-        total = kwargs["total"]
-        for i in range(total):
-            User.objects.create_user(username=get_random_string(), email="", password="123")
+        name = kwargs["name"]
+        password = get_random_string()
+
+        User.objects.create_user(username=name, email="", password=password)
+
+        self.stdout.write(f"Account created \n 🙋‍♂️Username: {name} \n 🔐 Password: {password} \n")
+
+        parser.add_argument("total", type=int, help="Indicates the number users to be created")
