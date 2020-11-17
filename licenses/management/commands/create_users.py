@@ -2,6 +2,8 @@
 This was a simple management command to get familiar
 with Django management commands again, it's be a while.
 
+Only creates standard users, does not create superusers.
+
 USAGE: `python manage.py create_users x`
 where x = the number of users you want to create.
 
