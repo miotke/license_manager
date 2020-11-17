@@ -1,4 +1,5 @@
 from licenses.models import License
+from licenses.models import Software
 from django.core.management.base import BaseCommand
 from django.utils.crypto import get_random_string
 from django.utils import timezone
@@ -14,9 +15,11 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         total = kwargs["total"]
+        software_titles = Software.software_name
 
         for i in range(total):
-            license_key = License(license_key=get_random_string())
-            license_key.save()
+            for n in software_titles:
+                license_key = License(license_key=get_random_string(), associated_software=n)
+                license_key.save()
 
-            self.stdout.write(f"Created license key {license_key} for software ")
+            self.stdout.write(f"Created license key {license_key} for software {n}")
