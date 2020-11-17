@@ -1,3 +1,19 @@
+"""
+This command creates a Software entry without
+a license key. Since there is not an associated license
+key the software titles generated with this script
+will not appear in the web apps front-end but will show
+under Software in the admin console.
+
+If you need generate a Software and License pair
+refer to create_software_license_pairs.py in the
+same directory as this script.
+
+USAGE: `python manage.py create_software_title x`
+where x = the number of software titles you want to create.
+
+"""
+
 from licenses.models import Software
 from django.core.management.base import BaseCommand
 from django.utils.crypto import get_random_string

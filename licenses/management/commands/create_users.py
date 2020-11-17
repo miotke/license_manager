@@ -2,6 +2,8 @@
 This was a simple management command to get familiar
 with Django management commands again, it's be a while.
 
+Only creates standard users, does not create superusers.
+
 USAGE: `python manage.py create_users x`
 where x = the number of users you want to create.
 
@@ -28,5 +30,3 @@ class Command(BaseCommand):
         User.objects.create_user(username=name, email="", password=password)
 
         self.stdout.write(f"Account created \n 🙋‍♂️Username: {name} \n 🔐 Password: {password} \n")
-
-        parser.add_argument("total", type=int, help="Indicates the number users to be created")
