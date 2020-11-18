@@ -7,6 +7,8 @@ Generally if there is an `x` in the usage description, `x` means the number of t
 
 ## licenses
 
+All management commands associated with the licenses Django application.
+
 ### create_software_license_pairs
 
 Creates a Software entry with a
