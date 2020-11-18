@@ -15,4 +15,4 @@ class ListLicenseKeysView(LoginRequiredMixin, ListView):
     model = License
     template_name = "templates/index.html"
     context_object_name = "licenses"
-    ordering = ["-date_of_entry"]
+    ordering = ["associated_software"]
