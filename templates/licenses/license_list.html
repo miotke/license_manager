@@ -22,6 +22,8 @@
                         {% else %}
                             Assigned to: {{ software.license_assigned_to }}
                         {% endif %}
+                        <br>
+                        Number of licenses: {{ software.associated_software.count }}
                     </td>
                 </tr>
             {% endfor %}
