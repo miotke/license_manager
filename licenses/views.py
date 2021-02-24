@@ -11,6 +11,15 @@ from django.views.generic import UpdateView
 from django.views.generic import DeleteView
 from .models import Software
 from .models import License
+from rest_framework import generics
+from rest_framework import viewsets
+from .serializers import SoftwareSerializer
+
+
+# class ListSoftware(generics.ListCreateAPIView): 
+class ListSoftware(viewsets.ModelViewSet):
+    queryset = Software.objects.all()
+    serializer_class = SoftwareSerializer
 
 
 class ListLicenseKeysView(LoginRequiredMixin, ListView):

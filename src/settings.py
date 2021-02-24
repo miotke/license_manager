@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,9 @@ STATICFILES_DIRS = [
 
 # Redirect URLs
 LOGIN_REDIRECT_URL = "/"
+
+REST_FRAMEWORK = { 
+    "DEFAULT_PERMISSION_CLASS": [ 
+        "rest_framework.permissions.AllowAny",
+    ]
+}
