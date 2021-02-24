@@ -43,7 +43,7 @@
 
         <form class="form-inline" action="{% url 'license-index' %}" method="POST">
             {% csrf_token %}
-            <input class="form-control mr-sm-2" type="search" placeholder="Currently broken" aria-label="Search">
+            <input class="form-control mr-sm-2" type="text" name="software_name">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
 
@@ -57,6 +57,10 @@
         {% block content %}{% endblock %}
 
     </div>
+
+    {% for result in results %}
+        <p>{{result.software_name}}</p>
+    {% endfor %}
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
