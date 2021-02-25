@@ -11,6 +11,15 @@ from django.views.generic import UpdateView
 from django.views.generic import DeleteView
 from .models import Software
 from .models import License
+from rest_framework import generics
+from rest_framework import viewsets
+from .serializers import SoftwareSerializer
+
+
+# class ListSoftware(generics.ListCreateAPIView): 
+class ListSoftware(viewsets.ModelViewSet):
+    queryset = Software.objects.all()
+    serializer_class = SoftwareSerializer
 
 
 class ListLicenseKeysView(LoginRequiredMixin, ListView):
@@ -21,25 +30,13 @@ class ListLicenseKeysView(LoginRequiredMixin, ListView):
     ordering = ["associated_software"]
 
 
-    def search_page(request):
-        # Get search_term from template
-        search_key = request.POST.get("search_term")
-        request.session["search_key"] = search_key
+    def search_product(request): 
+        # Search function
+        if request.method == "POST": 
+            query_name = request.POST.get("software_name", None)
+            
+            if query_name:
+                results = Software.objects.filter(name__contains=query_name)
+                return render(request, "product-search.html", {"results": results})
 
-        # Redirect to search results page
-        return HttpResponseRedirect("/item/search-results")
-
-
-    # Return the search results page
-    def search_results(request):
-        search_key = request.session["search_key"]
-
-        # Query results text that contains what you typed in
-        results = Software.object.filter(text__contains=search_key)
-
-        context = {
-            "search_term": search_key,
-            "results": results
-        }
-
-        return render(request, "templates/search_results.html", context)
+            return render(request, "product-search.html")

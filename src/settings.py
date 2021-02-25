@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Custom built apps
     'licenses.apps.LicensesConfig',
 
     'django.contrib.admin',
@@ -40,9 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -127,3 +132,15 @@ STATICFILES_DIRS = [
 
 # Redirect URLs
 LOGIN_REDIRECT_URL = "/"
+
+REST_FRAMEWORK = { 
+    "DEFAULT_PERMISSION_CLASS": [ 
+        "rest_framework.permissions.AllowAny",
+    ]
+}
+
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',
+    'http://localhost:8000',
+    'http://localhost:8080',
+]
