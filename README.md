@@ -16,6 +16,7 @@ The backend runs in Django using the Django Rest Framework. To run that server u
 #### Frontend
 
 The frontend runs in react(current learning process). To run the react server use: 
+
 `cd frontend/`
 
 `npm start`
