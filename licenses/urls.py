@@ -12,7 +12,7 @@ router.register(r"software", ListSoftware)
 
 
 urlpatterns = [
-    path("", ListLicenseKeysView.as_view(), name="license-index"),
+    # path("", ListLicenseKeysView.as_view(), name="license-index"),
     # path("", ListSoftware.as_view())
     path("api/", include(router.urls))
 ]
