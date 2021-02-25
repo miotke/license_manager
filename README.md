@@ -6,6 +6,20 @@ Name pending.
 
 A Django application that will allow you to track and manage software licenses and who is using them.
 
+### Getting started
+
+#### Backend
+
+The backend runs in Django using the Django Rest Framework. To run that server use:
+`python manage.py runserver`
+
+#### Frontend
+
+The frontend runs in react(current learning process). To run the react server use: 
+`cd frontend/`
+
+`npm start`
+
 ### Features and requirements
 
 **Requirements per entry**
